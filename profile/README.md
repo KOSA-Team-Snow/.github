@@ -6,11 +6,11 @@
 
 **KOSA 한국 인공지능 소프트웨어 협회 클라우드 인프라 엔지니어 육성과정 수료 및 최종 프로젝트 대상 수상작**입니다.
 
-KOSA Team Snow는 5대의 물리 PC 위에 Proxmox VE 클러스터를 구성하고, 그 위에서 Flask 기반 Employee Directory 애플리케이션을 운영하기 위한 Kubernetes 플랫폼을 구축한 팀 프로젝트입니다.
+- KOSA Team Snow는 5대의 물리 PC 위에 Proxmox VE 클러스터를 구성하고, 그 위에서 Flask 기반 Employee Directory 애플리케이션을 운영하기 위한 Kubernetes 플랫폼을 구축한 팀 프로젝트입니다.
 
-이 프로젝트의 핵심은 단순히 애플리케이션을 Kubernetes에 배포하는 것이 아닙니다. 네트워크, 스토리지, GitOps, 관측성, 데이터 복제, 장애 복구까지 실제 운영 인프라에서 필요한 흐름을 하나의 시스템으로 연결하는 것을 목표로 했습니다.
+- 이 프로젝트의 핵심은 단순히 애플리케이션을 Kubernetes에 배포하는 것이 아닙니다. 네트워크, 스토리지, GitOps, 관측성, 데이터 복제, 장애 복구까지 실제 운영 인프라에서 필요한 흐름을 하나의 시스템으로 연결하는 것을 목표로 했습니다.
 
-정상 운영은 On-prem Kubernetes에서 수행하고, 장애 상황에서는 AWS Pilot Light DR 환경을 활성화해 서비스를 복구할 수 있도록 설계했습니다.
+- 정상 운영은 On-prem Kubernetes에서 수행하고, 장애 상황에서는 AWS Pilot Light DR 환경을 활성화해 서비스를 복구할 수 있도록 설계했습니다.
 
 ## 🛠 Tech Stacks
 
@@ -105,7 +105,7 @@ On-prem 장애 감지
 
 ## 🧭 핵심 설계 결정
 
-프로젝트는 주요 아키텍처 결정을 ADR(Architecture Decision Record)로 남기고, 설계 변경 이유와 채택 근거를 문서화했습니다.
+#### 프로젝트는 주요 아키텍처 결정을 ADR(Architecture Decision Record)로 남기고, 설계 변경 이유와 채택 근거를 문서화했습니다.
 
 | 결정 | 이유 |
 | --- | --- |
@@ -161,19 +161,19 @@ On-prem 장애 감지
 
 ## 🤝 협업 방식
 
-작업은 GitHub Issue, GitHub Project, 정/부 리뷰 체계, PR Template, 문서 기반 의사결정 기록을 중심으로 관리했습니다.
+- 작업은 GitHub Issue, GitHub Project, 정/부 리뷰 체계, PR Template, 문서 기반 의사결정 기록을 중심으로 관리했습니다.
 
-GitHub Project를 팀 공용 작업 보드로 사용해 각 repository의 이슈를 한곳에서 추적했습니다. 작업은 `Backlog`, `Ready`, `In Progress`, `Review`, `Blocked`, `Done` 흐름으로 관리했고, 진행 중 막힌 작업은 Project 보드에서 상태를 바꿔 후속 조치와 담당자 follow-up이 이어지도록 운영했습니다.
+- GitHub Project를 팀 공용 작업 보드로 사용해 각 repository의 이슈를 한곳에서 추적했습니다. 작업은 `Backlog`, `Ready`, `In Progress`, `Review`, `Blocked`, `Done` 흐름으로 관리했고, 진행 중 막힌 작업은 Project 보드에서 상태를 바꿔 후속 조치와 담당자 follow-up이 이어지도록 운영했습니다.
 
 ### 🧑‍💻 트랙
 
-| 트랙 | 주요 책임 |
-| --- | --- |
-| On-prem Foundation | Proxmox, pfSense, VLAN, Ceph, VM template |
-| Kubernetes Platform | kubeadm HA cluster, Calico, ingress-nginx, node policy |
-| Application / GitOps | FlaskApp container, ECR, Helm, ArgoCD rollout |
-| Data / Observability | MariaDB, DMS source readiness, exporters, monitoring/logging |
-| AWS DR | VPC, VPN, RDS, DMS, S3, ECR, EKS/ALB activation |
+| 트랙 | 주요 책임 | 담당자 |
+| --- | --- | --- |
+| On-prem Foundation | Proxmox, pfSense, VLAN, Ceph, VM template | 정: 권순호 부: 안지오 |
+| Kubernetes Platform | kubeadm HA cluster, Calico, ingress-nginx, node policy | 정: 안지오 부: 이민희 |
+| Application / GitOps | FlaskApp container, ECR, Helm, ArgoCD rollout | 정: 이민희 부: 정현욱 |
+| Data / Observability | MariaDB, DMS source readiness, exporters, monitoring/logging | 정: 정현욱 부: 최재혁 |
+| AWS DR | VPC, VPN, RDS, DMS, S3, ECR, EKS/ALB activation | 정: 최재혁 부: 권순호 |
 
 ### 🗂️ WBS 문서화
 
